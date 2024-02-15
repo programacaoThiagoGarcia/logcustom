@@ -43,7 +43,7 @@ func (s Type) Log(msg string) {
 
 	case Debug:
 		debugLogger = log.New(file, "DEBUG: ", log.Ldate|log.Ltime|log.Lshortfile)
-		debugLogger.Prinln(msg)
+		debugLogger.Println(msg)
 
 	}
 }
