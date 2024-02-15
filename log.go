@@ -21,6 +21,7 @@ const (
 	Debug   Type = 3
 )
 
+//Log is main method 
 func (s Type) Log(msg string) {
 	file, err := os.OpenFile("app.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
 
@@ -29,6 +30,7 @@ func (s Type) Log(msg string) {
 	}
 
 	switch s {
+
 	case Info:
 		InfoLogger = log.New(file, "INFO: ", log.Ldate|log.Ltime|log.Lshortfile)
 		InfoLogger.Println(msg)
