@@ -6,10 +6,10 @@ import (
 )
 
 var (
-	WarningLogger *log.Logger
-	InfoLogger    *log.Logger
-	ErrorLogger   *log.Logger
-	DebugLogger   *log.Logger
+	warningLogger *log.Logger
+	infoLogger    *log.Logger
+	errorLogger   *log.Logger
+	debugLogger   *log.Logger
 )
 
 type Type int64
@@ -32,18 +32,18 @@ func (s Type) Log(msg string) {
 	switch s {
 
 	case Info:
-		InfoLogger = log.New(file, "INFO: ", log.Ldate|log.Ltime|log.Lshortfile)
-		InfoLogger.Println(msg)
+		infoLogger = log.New(file, "INFO: ", log.Ldate|log.Ltime|log.Lshortfile)
+		infoLogger.Println(msg)
 	case Warning:
-		WarningLogger = log.New(file, "WARNING: ", log.Ldate|log.Ltime|log.Lshortfile)
-		WarningLogger.Println(msg)
+		warningLogger = log.New(file, "WARNING: ", log.Ldate|log.Ltime|log.Lshortfile)
+		warningLogger.Println(msg)
 	case Error:
-		ErrorLogger = log.New(file, "ERROR: ", log.Ldate|log.Ltime|log.Lshortfile)
-		ErrorLogger.Println(msg)
+		errorLogger = log.New(file, "ERROR: ", log.Ldate|log.Ltime|log.Lshortfile)
+		errorLogger.Println(msg)
 
 	case Debug:
-		DebugLogger = log.New(file, "DEBUG: ", log.Ldate|log.Ltime|log.Lshortfile)
-		DebugLogger.Printf("Debug message: %s  Some debug Info", msg)
+		debugLogger = log.New(file, "DEBUG: ", log.Ldate|log.Ltime|log.Lshortfile)
+		debugLogger.Prinln(msg)
 
 	}
 }
