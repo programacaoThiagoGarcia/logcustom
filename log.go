@@ -3,6 +3,8 @@ package logcustom
 import (
 	"log"
 	"os"
+
+	color "github.com/programacaoThiagoGarcia/logcustom/colors"
 )
 
 var (
@@ -33,17 +35,16 @@ func (s Type) Log(msg string) {
 
 	case Info:
 		infoLogger = log.New(file, "INFO: ", log.Ldate|log.Ltime)
-		infoLogger.Println(msg)
+		infoLogger.Println(color.Green + msg + color.Reset)
 	case Warning:
 		warningLogger = log.New(file, "WARNING: ", log.Ldate|log.Ltime)
-		warningLogger.Println(msg)
+		warningLogger.Println(color.Yellow + msg + color.Reset)
 	case Error:
 		errorLogger = log.New(file, "ERROR: ", log.Ldate|log.Ltime)
-		errorLogger.Println(msg)
-
+		errorLogger.Println(color.Red + msg + color.Reset)
 	case Debug:
 		debugLogger = log.New(file, "DEBUG: ", log.Ldate|log.Ltime)
-		debugLogger.Println(msg)
+		debugLogger.Println(color.Cyan + msg + color.Reset)
 
 	}
 }
