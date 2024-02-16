@@ -35,16 +35,20 @@ func (s Type) Log(msg string) {
 
 	case Info:
 		infoLogger = log.New(file, "INFO: ", log.Ldate|log.Ltime)
-		infoLogger.Println(color.Green + msg + color.Reset)
+		infoLogger.Println(msg)
+		println(color.Green + msg + color.Reset)
 	case Warning:
 		warningLogger = log.New(file, "WARNING: ", log.Ldate|log.Ltime)
-		warningLogger.Println(color.Yellow + msg + color.Reset)
+		warningLogger.Println(msg)
+		println(color.Yellow + msg + color.Reset)
 	case Error:
 		errorLogger = log.New(file, "ERROR: ", log.Ldate|log.Ltime)
-		errorLogger.Println(color.Red + msg + color.Reset)
+		errorLogger.Println(msg)
+		println(color.Red + msg + color.Reset)
 	case Debug:
 		debugLogger = log.New(file, "DEBUG: ", log.Ldate|log.Ltime)
-		debugLogger.Println(color.Cyan + msg + color.Reset)
+		debugLogger.Println(msg)
+		println(color.Cyan + msg + color.Reset)
 
 	}
 }
