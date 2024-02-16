@@ -21,7 +21,7 @@ const (
 	Debug   Type = 3
 )
 
-//Log is main method 
+// Log is main method
 func (s Type) Log(msg string) {
 	file, err := os.OpenFile("app.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
 
@@ -32,17 +32,17 @@ func (s Type) Log(msg string) {
 	switch s {
 
 	case Info:
-		infoLogger = log.New(file, "INFO: ", log.Ldate|log.Ltime|log.Lshortfile)
+		infoLogger = log.New(file, "INFO: ", log.Ldate|log.Ltime)
 		infoLogger.Println(msg)
 	case Warning:
-		warningLogger = log.New(file, "WARNING: ", log.Ldate|log.Ltime|log.Lshortfile)
+		warningLogger = log.New(file, "WARNING: ", log.Ldate|log.Ltime)
 		warningLogger.Println(msg)
 	case Error:
-		errorLogger = log.New(file, "ERROR: ", log.Ldate|log.Ltime|log.Lshortfile)
+		errorLogger = log.New(file, "ERROR: ", log.Ldate|log.Ltime)
 		errorLogger.Println(msg)
 
 	case Debug:
-		debugLogger = log.New(file, "DEBUG: ", log.Ldate|log.Ltime|log.Lshortfile)
+		debugLogger = log.New(file, "DEBUG: ", log.Ldate|log.Ltime)
 		debugLogger.Println(msg)
 
 	}
