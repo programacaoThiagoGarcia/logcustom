@@ -46,8 +46,8 @@ func (s Type) Log(msg string) {
 		errorLogger.Println(msg)
 		println(color.Red + msg + color.Reset)
 	case Debug:
-		debugLogger = log.New(file, "DEBUG: ", log.Ldate|log.Ltime)
-		debugLogger.Println(msg)
+		// debugLogger = log.New(file, "DEBUG: ", log.Ldate|log.Ltime)
+		// debugLogger.Println(msg)
 		println(color.Cyan + msg + color.Reset)
 
 	}
